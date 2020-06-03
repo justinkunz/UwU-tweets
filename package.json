@@ -1,0 +1,19 @@
+{
+  "name": "owo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "arrayfriend": "^1.0.1",
+    "dotenv": "^8.2.0",
+    "node-tweet-stream": "^2.0.3",
+    "twit": "^2.2.11"
+  }
+}
