@@ -8,7 +8,7 @@ const tweetHandler = async ({ extended_tweet, text }) => {
   try {
     const ogTweetText = extended_tweet ? extended_tweet.full_text : text;
     const owoTweetText = owo(ogTweetText);
-    console.log(owoTweetText);
+
     await tweet(owoTweetText);
     console.log("Successfully sent tweet");
   } catch (err) {
