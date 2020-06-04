@@ -16,7 +16,7 @@ const setStream = ({ userId, username }, cb) => {
 
   twitter.on("tweet", (t) => {
     if (t.user.screen_name.toLowerCase() === username.toLowerCase()) {
-      console.log("tweety tweet");
+      console.log(`tweety tweet from @${t.user.screen_name}`);
       cb(t);
     }
   });

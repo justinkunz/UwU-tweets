@@ -16,4 +16,15 @@ So pathetic to watch the Fake News Lamestream Media playing down the gravity and
 *nuzzles* So pathetic to watch the Fake News Wamestweam Media pwaying down the gwavity and depwavity of the Wadicaw Weft, wootews and thugs, wipping up ouw Wibewaw Democwat wun (onwy) cities >.< It is awmost wike they awe aww wowking togethew?
 ```
 
-### Local Set
+### Local Set Up
+
+To run this app locally you will need to have node installed.
+
+Run the following commands:
+
+```
+git clone https://github.com/justinkunz/UwU-trump-tweets
+cd UwU-trump-tweets
+npm i
+cp .env.example .env
+```
