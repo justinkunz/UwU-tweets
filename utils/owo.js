@@ -1,5 +1,7 @@
 const { MAX_TWEET_LENGTH } = process.env;
 const $ = require("arrayfriend");
+const Entities = require("html-entities").AllHtmlEntities;
+const entities = new Entities();
 
 const addFaces = (str) => {
   const faceOptions = $("D:", ">.<", ":P", "XD", ":3");
@@ -27,11 +29,13 @@ const prefix = (str) => {
 };
 
 const owoConvert = (str) => {
-  const owo = str
+  const owo = entities
+    .decode(str)
     .replace(/r/g, "w")
     .replace(/l/g, "w")
     .replace(/R/g, "W")
-    .replace(/L/g, "W");
+    .replace(/L/g, "W")
+    .replace(/https?:\/\/[^\s]+/g, "");
 
   const extraCringe = prefix(addFaces(owo));
 
