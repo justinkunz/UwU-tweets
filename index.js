@@ -8,11 +8,15 @@ const tweetHandler = async ({ extended_tweet, text }) => {
   try {
     const ogTweetText = extended_tweet ? extended_tweet.full_text : text;
     const owoTweetText = owo(ogTweetText);
-    console.log(owoTweetText);
+    console.log(`TWEETING:\n${owoTweetText}`);
     await tweet(owoTweetText);
-    console.log("Successfully sent tweet");
+    console.log("Successfully sent tweet\n");
   } catch (err) {
-    console.log("Error sending tweet", err);
+    if (status.startsWith("Status is a duplicate")) {
+      console.log("==> Tweet is a duplicate\n");
+    } else {
+      console.log("Error sending tweet\n", err);
+    }
   }
 };
 
