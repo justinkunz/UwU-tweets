@@ -1,4 +1,5 @@
 const TwitterUpdate = require("twit");
+const { UPDATE_STATUS } = require("../constants");
 const {
   TWITTER_CONSUMER_KEY,
   TWITTER_CONSUMER_SECRET,
@@ -6,6 +7,7 @@ const {
   TWITTER_ACCESS_TOKEN_SECRET,
 } = process.env;
 
+// Sends Tweet
 const sendTweet = (status) => {
   const twitterUpdate = new TwitterUpdate({
     consumer_key: TWITTER_CONSUMER_KEY,
@@ -14,7 +16,7 @@ const sendTweet = (status) => {
     access_token_secret: TWITTER_ACCESS_TOKEN_SECRET,
   });
   return new Promise((resolve, reject) => {
-    twitterUpdate.post("statuses/update", { status }, (err, data, resp) => {
+    twitterUpdate.post(UPDATE_STATUS, { status }, (err, data, resp) => {
       if (err) reject(err);
       resolve();
     });

@@ -1,10 +1,13 @@
-const { MAX_TWEET_LENGTH } = process.env;
 const $ = require("arrayfriend");
 const Entities = require("html-entities").AllHtmlEntities;
-const entities = new Entities();
+const { faces, prefixes } = require("../config.json").customization;
+const { MAX_TWEET_LENGTH } = process.env;
 
+const entities = new Entities(); // For decoding encoded tweets
+
+// Randomly add faces to tweet between sentences
 const addFaces = (str) => {
-  const faceOptions = $("D:", ">.<", ":P", "XD", ":3");
+  const faceOptions = $(...faces);
 
   const sentenceCount = (str.match(/. /g) || []).length;
 
@@ -18,16 +21,13 @@ const addFaces = (str) => {
   return str;
 };
 
+// Randomly prefix some tweets with * prefixes
 const prefix = (str) => {
-  const prefixes = $(
-    "*nuzzles*",
-    "*nuzzles and kisses you*",
-    "*whispers softly*",
-    "*blushes*"
-  );
-  return Math.random() > 0.5 ? `${prefixes.random()} ${str}` : str;
+  const prefixOptions = $(...prefixes);
+  return Math.random() > 0.5 ? `${prefixOptions.random()} ${str}` : str;
 };
 
+// Convert standard tweet to owo
 const owoConvert = (str) => {
   const owo = entities
     .decode(str)

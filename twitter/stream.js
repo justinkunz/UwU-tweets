@@ -1,4 +1,5 @@
 const TwitterStream = require("node-tweet-stream");
+const { TWEET, ERROR } = require("../constants");
 const {
   TWITTER_CONSUMER_KEY,
   TWITTER_CONSUMER_SECRET,
@@ -14,7 +15,7 @@ const setStream = ({ userId, username }, cb) => {
     token_secret: TWITTER_ACCESS_TOKEN_SECRET,
   });
 
-  twitter.on("tweet", (t) => {
+  twitter.on(TWEET, (t) => {
     if (
       t.user.screen_name.toLowerCase() === username.toLowerCase() &&
       !t.text.startsWith("RT") // Avoid RTs
@@ -24,7 +25,7 @@ const setStream = ({ userId, username }, cb) => {
     }
   });
 
-  twitter.on("error", (err) => {
+  twitter.on(ERROR, (err) => {
     console.log("TWITTER ERROR", err);
   });
 

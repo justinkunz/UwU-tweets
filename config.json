@@ -2,5 +2,14 @@
   "twitterUser": {
     "userId": 25073877,
     "username": "realdonaldtrump"
+  },
+  "customization": {
+    "faces": ["D:", ">.<", ":P", "XD", ":3"],
+    "prefixes": [
+      "*nuzzles*",
+      "*nuzzles and kisses you*",
+      "*whispers softly*",
+      "*blushes*"
+    ]
   }
 }
