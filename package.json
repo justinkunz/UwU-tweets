@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "worker": "heroku ps:scale worker=1",
+    "worker:start": "heroku ps:scale worker=1",
+    "worker:stop": "heroku ps:scale worker=1",
+    "worker:reset": "npm run worker:stop && npm run worker:start",
     "logs": "heroku logs --tail"
   },
   "keywords": [],
