@@ -2,6 +2,8 @@
 
 This app creates a Twitter stream of @realdonaldtrump's tweets, converts it to a cringey UwU format, then reposts the owo version. Heavily influenced by the [trump_owo twitter](https://twitter.com/trump_owo?lang=en).
 
+Currently deployed through an heroku worker
+
 ### Example
 
 ###### Input
