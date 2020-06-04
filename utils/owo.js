@@ -35,10 +35,12 @@ const owoConvert = (str) => {
     .replace(/l/g, "w")
     .replace(/R/g, "W")
     .replace(/L/g, "W")
-    .replace(/https?:\/\/[^\s]+/g, "");
+    .replace(/https?:\/\/[^\s]+/g, ""); // Remove all links (can cause error w/ Twitter API)
 
   const extraCringe = prefix(addFaces(owo));
 
+  // Send extra cingey tweet if alotted space - since more characters added - tweet may be over twitters character limit
+  // in that case, send less cringey owo tweet (same length as OG tweet)
   return extraCringe.length > parseInt(MAX_TWEET_LENGTH) ? owo : extraCringe;
 };
 

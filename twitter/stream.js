@@ -17,10 +17,10 @@ const setStream = ({ userId, username }, cb) => {
 
   twitter.on(TWEET, (t) => {
     if (
-      t.user.screen_name.toLowerCase() === username.toLowerCase() &&
+      t.user.screen_name.toLowerCase() === username.toLowerCase() && // Avoid mentions or replies, only original tweets
       !t.text.startsWith("RT") // Avoid RTs
     ) {
-      console.log(`tweety tweet from @${t.user.screen_name}`);
+      console.log(`Tweet from @${t.user.screen_name}`);
       cb(t);
     }
   });
@@ -29,6 +29,7 @@ const setStream = ({ userId, username }, cb) => {
     console.log("TWITTER ERROR", err);
   });
 
+  // Set up stream on user
   twitter.follow(userId);
 };
 
